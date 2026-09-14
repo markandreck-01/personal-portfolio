@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+		<!-- <link rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"> -->
+		<link rel="stylesheet" href="styles/style.css">	
+
+		<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script id="tailwind-config">
+			tailwind.config={
+				darkMode:"class",
+				theme:{
+					extend:{
+						colors:{
+							"secondary-container":"#00a572",
+							"background":"#121318",
+							"on-secondary":"#003824",
+							"inverse-surface":"#e3e1e9",
+							"surface-bright":"#38393f",
+							"surface-container-highest":"#34343a",
+							"on-primary-fixed":"#00174b",
+							"on-secondary-fixed-variant":"#005236",
+							"on-tertiary":"#581e00",
+							"primary-fixed-dim":"#b4c5ff",
+							"on-surface":"#e3e1e9",
+							"on-background":"#e3e1e9",
+							"on-primary-container":"#eeefff",
+							"on-error-container":"#ffdad6",
+							"surface-container-low":"#1a1b21",
+							"surface-container":"#1e1f25",
+							"surface-tint":"#b4c5ff",
+							"tertiary-container":"#bc4800",
+							"secondary-fixed":"#6ffbbe",
+							"on-tertiary-fixed-variant":"#7d2d00",
+							"secondary":"#4edea3",
+							"outline":"#8d90a0",
+							"primary-container":"#2563eb",
+							"tertiary":"#ffb596",
+							"inverse-on-surface":"#2f3036",
+							"primary":"#b4c5ff",
+							"surface":"#121318",
+							"on-primary":"#002a78",
+							"on-error":"#690005",
+							"tertiary-fixed-dim":"#ffb596",
+							"on-secondary-fixed":"#002113",
+							"primary-fixed":"#dbe1ff",
+							"surface-container-lowest":"#0d0e13",
+							"outline-variant":"#434655",
+							"tertiary-fixed":"#ffdbcd",
+							"on-primary-fixed-variant":"#003ea8",
+							"surface-container-high":"#292a2f",
+							"on-secondary-container":"#00311f",
+							"inverse-primary":"#0053db",
+							"on-tertiary-fixed":"#360f00",
+							"error":"#ffb4ab",
+							"surface-dim":"#121318",
+							"surface-variant":"#34343a",
+							"secondary-fixed-dim":"#4edea3",
+							"on-surface-variant":"#c3c6d7",
+							"on-tertiary-container":"#ffede6",
+							"error-container":"#93000a"
+						},
+						borderRadius:{
+							"DEFAULT":"0.125rem",
+							"lg":"0.25rem",
+							"xl":"0.5rem",
+							"full":"0.75rem"
+						},
+						spacing:{
+							"unit-2xs":"0.25rem",
+							"gutter-mobile":"1rem",
+							"unit-xs":"0.5rem",
+							"unit-md":"1rem",
+							"unit-2xl":"3rem",
+							"unit-xl":"2rem",
+							"unit-5xl":"8rem",
+							"gutter-desktop":"2rem",
+							"unit-sm":"0.75rem",
+							"unit-lg":"1.5rem",
+							"unit-3xl":"4rem",
+							"unit-4xl":"6rem",
+							"max-content-width":"1200px"
+						},
+						fontFamily:{
+							"body-sm":["Inter"],
+							"display-hero-mobile":["Inter"],
+							"mono-code":["JetBrains Mono"],
+							"headline-sm":["Inter"],
+							"headline-lg":["Inter"],
+							"body-md":["Inter"],
+							"label-caps":["JetBrains Mono"],
+							"mono-spec":["JetBrains Mono"],
+							"display-hero":["Inter"],
+							"headline-md":["Inter"],
+							"body-lg":["Inter"],
+							"headline-lg-mobile":["Inter"]
+						},
+						fontSize:{
+							"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"400"}],
+							// "display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],
+							// "display-hero-tablet": [
+							// 	"44px",
+							// 	{
+							// 		lineHeight: "52px",
+							// 		letterSpacing: "-0.03em",
+							// 		fontWeight: "600"
+							// 	}
+							// ],
+							"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"600"}],
+							"mono-code":["13px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"400"}],
+							"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"500"}],
+							"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],
+							"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],
+							"label-caps":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"600"}],
+							"mono-spec":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],
+							"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"500"}],
+							"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"400"}],
+							"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"600"}]
+
+							,"display-hero-mobile":["18px",{"lineHeight":"30px","letterSpacing":"-0.025em","fontWeight":"600"}],
+							"display-hero-tablet": [
+								"18px",
+								{
+									lineHeight: "26px",
+									letterSpacing: "-0.03em",
+									fontWeight: "600"
+								}
+							],
+							"display-hero":["30px",{"lineHeight":"44px","letterSpacing":"-0.03em","fontWeight":"600"}],
+						}
+					}
+				}
+			};
+		</script>
+	</head>
+
+	<body class="bg-background font-body-md text-on-surface antialiased">
+		<header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">			
+			<div class="h-16 w-full max-w-[1200px] mx-auto px-unit-md sm:px-unit-lg flex items-center justify-between gap-unit-sm">
+				<div class="flex items-center gap-unit-sm">
+					<img alt="ECE Engineering Monogram Logo" class="h-8 w-auto object-contain" src="../assets/icons/screen.png"/>
+					<a class="font-mono-code text-mono-code text-on-surface tracking-tight font-medium hover:text-primary transition-colors" data-path="overview" href="#">
+						<span class="whitespace-nowrap">TINOTENDA MAPARA</span>
+						<span class="whitespace-nowrap text-outline font-normal text-mono-spec">/ M.Sc. ECE</span>
+					</a>
+				</div>
+				<nav class="hidden xl:flex items-center gap-unit-lg" data-active-classes="text-primary font-medium">
+					<a aria-current="page" class="transition-colors text-primary font-medium" data-path="overview" href="#overview-hero-section">Overview</a>
+					<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors text-center" data-path="degrees-and-research" href="#degrees-and-research-section">Degrees &amp; Research</a>
+					<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors text-center" data-path="engineering-stack" href="#engineering-stack-section">Engineering Stack</a>
+					<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors text-center" data-path="projects-and-hardware-gallery" href="#projects-and-hardware-gallery-section">Projects &amp; Hardware Gallery</a>
+					<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors text-center" data-path="technical-blog" href="#technical-blog-section">Technical Blog & Publications</a>
+					<!-- <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors text-center" data-path="contact" href="#contact-section">Contact</a> -->
+					<a	class="contact-glow font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors text-center" data-path="contact"	href="#contact-section">
+						<span>Contact</span>
+						<svg
+							class="contact-glow-border"
+							aria-hidden="true"
+							viewBox="0 0 100 40"
+							preserveAspectRatio="none"
+						>
+							<!-- Faint permanent outline -->
+							<rect
+								x="1"
+								y="1"
+								width="98"
+								height="38"
+								rx="5"
+								fill="none"
+								stroke="#b4c5ff"
+								stroke-opacity="0.25"
+								stroke-width="1"
+							/>
+
+							<!-- Moving bright section -->
+							<rect
+								class="contact-glow-trace"
+								x="1"
+								y="1"
+								width="98"
+								height="38"
+								rx="5"
+								fill="none"
+								stroke="#22d3ee"
+								stroke-width="2"
+								stroke-linecap="round"
+								pathLength="100"
+								stroke-dasharray="8 92"
+							/>
+						</svg>
+					</a>
+ 
+				</nav>
+				<div class="flex items-center gap-unit-sm">
+					<div class="hidden sm:flex items-center gap-unit-xs px-unit-sm py-unit-2xs bg-surface-container border border-outline-variant/40 rounded-full">
+						<span class="relative flex h-2 w-2">
+							<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+							<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+						</span>
+						<span class="font-mono-spec text-mono-spec text-on-surface-variant uppercase tracking-wider">
+							Available for Consulting
+						</span>
+					</div>
+					<!-- <a class="inline-flex items-center gap-unit-2xs px-unit-sm py-unit-xs bg-surface-container border border-outline-variant/40 hover:border-outline text-on-surface hover:text-on-surface rounded-lg font-mono-spec text-mono-spec transition-all" href="#">
+						<span class="material-symbols-outlined text-[16px]">download</span>
+						<span>CV</span>
+					</a> -->
+					<button class="inline-flex items-center gap-unit-2xs px-unit-sm py-unit-xs bg-surface-container-low border border-outline-variant/40 hover:border-outline text-on-surface hover:text-on-surface rounded-lg font-mono-spec text-mono-spec transition-all" id="nav-cv-download-trigger">
+						<span class="material-symbols-outlined text-[16px]">download</span>
+						<span>CV</span>
+					</button>
+					<!-- <img alt="Profile" class="hidden xl:flex w-8 h-8 rounded-full object-cover border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYvq5ou7ResuuAjt8H5N_h5SRrtjtKjdD7IoQiZS3YW3ZmHM627O1HHAm13o0nfi8rg9mhFizvoiyVPilBMkVjg4FPlZiwPa_Y0dIzeY9pdpW0WTgIG5aF0-11xoDp5PxHndmriKoSFTjgKckO5bjyhgJRcFv6em2uOqQMVN5Ue-QpkhGg2htq4J70iO47fjgGGa826i7kJacnEfwH49sKHl_8kgwx3UcFEweiH64nndGn93AyT26R"/> -->
+					<button
+						id="mobile-menu-btn"
+						type="button"
+						aria-label="Open navigation menu"
+						aria-expanded="false"
+						aria-controls="mobile-menu"
+						class="xl:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface hover:text-primary hover:border-outline transition-all"
+					>
+						<span id="mobile-menu-icon" class="material-symbols-outlined text-[20px]">
+							menu
+						</span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<!-- Mobile Navigation -->
+		<div id="mobile-menu" class="xl:hidden fixed top-16 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 hidden">
+			<nav class="max-w-[1200px] mx-auto px-unit-lg py-unit-md flex flex-col">
+				<a	href="#overview-hero-section" data-path="overview" class="mobile-nav-link py-unit-sm font-body-md text-body-md text-primary font-medium border-b border-outline-variant/20">Overview</a>
+				<a class="mobile-nav-link py-unit-sm font-body-md text-body-md text-on-surface-variant hover:text-on-surface border-b border-outline-variant/20" data-path="degrees-and-research" href="#degrees-and-research-section">Degrees &amp; Research</a>
+				<a class="mobile-nav-link py-unit-sm font-body-md text-body-md text-on-surface-variant hover:text-on-surface border-b border-outline-variant/20" data-path="engineering-stack" href="#engineering-stack-section">Engineering Stack</a>
+				<a class="mobile-nav-link py-unit-sm font-body-md text-body-md text-on-surface-variant hover:text-on-surface border-b border-outline-variant/20" data-path="projects-and-hardware-gallery" href="#projects-and-hardware-gallery-section">Projects &amp; Hardware Gallery</a>
+				<a class="mobile-nav-link py-unit-sm font-body-md text-body-md text-on-surface-variant hover:text-on-surface border-b border-outline-variant/20" data-path="technical-blog" href="#technical-blog-section">Technical Blog &amp; Publications</a>
+				<a class="mobile-nav-link py-unit-sm font-body-md text-body-md text-on-surface-variant hover:text-on-surface border-b border-outline-variant/20" data-path="contact" href="#contact-section">Contact</a>
+
+				<!-- socials links -->
+				<div class="py-unit-lg">
+					<span class="font-mono-spec text-mono-spec text-outline uppercase">Let's Connect on socials</span>
+					<div class="flex flex-wrap items-center justify-center gap-unit-lg pt-unit-md">
+						<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://github.com" rel="noopener noreferrer" target="_blank">
+							<!-- <span class="material-symbols-outlined text-[14px]">terminal</span>GitHub -->
+							<span><i class="fa-brands fa-github text-[18px]"></i></span>GitHub
+						</a>
+						<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://www.linkedin.com/in/tinotenda-mapara-9a78bb266/" rel="noopener noreferrer" target="_blank">
+							<span><i class="fa-brands fa-linkedin text-[18px]"></i></span>LinkedIn
+						</a>
+						<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://scholar.google.com/citations?hl=en&user=jNSochkAAAAJ" rel="noopener noreferrer" target="_blank">
+							<span><i class="fa-brands fa-google-scholar text-[18px]"></i></span>Google Scholar
+						</a>
+						<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://wa.me/264816466216" rel="noopener noreferrer" target="_blank">
+							<span><i class="fa-brands fa-whatsapp text-[16px]"></i></span>WhatsApp
+						</a>
+						<!-- <a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://x.com" rel="noopener noreferrer" target="_blank">
+							<span><i class="fa-brands fa-twitter text-[18px]"></i></span>X(Twitter)
+						</a> -->
+						<!-- <a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+							<span><i class="fa-brands fa-instagram text-[18px]"></i></span>Instagram
+						</a>
+						<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://facebook.com" rel="noopener noreferrer" target="_blank">
+							<span><i class="fa-brands fa-facebook text-[18px]"></i></span>Facebook
+						</a> -->
+						<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="mailto:markmapara@gmail.com">
+							<span class="material-symbols-outlined text-[18px]">mail</span>markmapara@gmail.com
+						</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+<!-- Page Header & Topic Search Matrix -->
+<section class="w-full max-w-[1200px] mx-auto px-unit-lg pt-unit-2xl pb-unit-xl">
+<div class="flex flex-col gap-unit-md max-w-4xl">
+<div class="flex items-center gap-unit-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#4edea3]"></span>
+<span class="font-mono-spec text-mono-spec text-on-surface-variant uppercase tracking-widest">Index // Vol. 04 — Peer-Reviewed &amp; Bench Verified</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-semibold">
+        Technical Notes, Research Papers &amp; Circuit Bench Logs
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        In-depth write-ups on embedded firmware engineering, PCB routing best practices in KiCad &amp; Proteus, high-speed digital design, RF matching, database performance, and edge machine learning architectures.
+      </p>
+</div>
+<!-- Filter & Real-Time Query Bar -->
+<div class="mt-unit-xl p-unit-md rounded-xl bg-surface-container-low shadow-sm flex flex-col lg:flex-row gap-unit-md items-stretch lg:items-center justify-between">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-unit-md py-unit-xs rounded-lg font-mono-code text-mono-code focus:outline-none focus:bg-surface-container transition-all" id="search-input" placeholder="Query microstrip, FreeRTOS, CMSIS-NN, LoRa..." type="text">
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-unit-2xs overflow-x-auto pb-1 lg:pb-0" id="filter-container">
+<button class="filter-btn active px-unit-sm py-1.5 rounded-lg bg-primary text-on-primary font-mono-spec text-mono-spec transition-all" data-filter="all">All Topics</button>
+<button class="filter-btn px-unit-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-mono-spec text-mono-spec transition-all" data-filter="pcb">PCB &amp; KiCad</button>
+<button class="filter-btn px-unit-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-mono-spec text-mono-spec transition-all" data-filter="embedded">Embedded &amp; Firmware</button>
+<button class="filter-btn px-unit-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-mono-spec text-mono-spec transition-all" data-filter="rf">RF &amp; Telecom</button>
+<button class="filter-btn px-unit-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-mono-spec text-mono-spec transition-all" data-filter="ml">Machine Learning</button>
+<button class="filter-btn px-unit-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-mono-spec text-mono-spec transition-all" data-filter="fullstack">Databases &amp; Stack</button>
+</div>
+</div>
+</section>
+<!-- Featured Research Spotlight Card -->
+<section class="w-full max-w-[1200px] mx-auto px-unit-lg pb-unit-2xl">
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-unit-lg lg:p-unit-xl shadow-xl">
+<!-- Decorative Micro-Mesh Background Glow -->
+<div class="absolute -right-32 -top-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row gap-unit-xl items-start justify-between">
+<div class="flex-1 flex flex-col gap-unit-md">
+<div class="flex flex-wrap items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-primary-container/20 text-primary font-label-caps text-label-caps uppercase tracking-wider">
+              FEATURED RESEARCH // HARDWARE BENCH
+            </span>
+<span class="text-outline font-mono-spec text-mono-spec">•</span>
+<span class="text-secondary font-mono-spec text-mono-spec">LAB REF: EXP-4L-DIFF-082</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight hover:text-primary transition-colors cursor-pointer">
+            Minimizing Return Path Discontinuities in 4-Layer High-Speed Mixed-Signal PCBs: A KiCad Case Study
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            A comprehensive walkthrough analyzing ground plane slotting, split return paths, differential impedance calculation, and clock jitter reduction in mixed analogue-digital board layouts. Measured with a 2.5GHz differential active probe across 100MHz LVDS channels.
+          </p>
+<!-- Article Metadata Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-unit-sm py-unit-xs my-unit-2xs bg-surface-container-low/70 rounded-lg p-unit-sm">
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase">Read Duration</span>
+<span class="font-mono-spec text-mono-spec text-on-surface font-medium">12 MIN READ</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase">Published</span>
+<span class="font-mono-spec text-mono-spec text-on-surface font-medium">OCT 2024</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase">Artifacts</span>
+<span class="font-mono-spec text-mono-spec text-on-surface font-medium">KICAD v8 + GERBER</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase">Indexing</span>
+<span class="font-mono-spec text-mono-spec text-primary font-medium">IEEE XPLORE CITED</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-unit-sm pt-unit-xs">
+<button class="inline-flex items-center gap-unit-xs px-unit-lg py-unit-xs bg-primary text-on-primary rounded-lg font-headline-sm text-headline-sm font-medium hover:bg-primary-fixed-dim transition-all shadow-md active:scale-95">
+<span>Read Deep-Dive</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="inline-flex items-center gap-unit-xs px-unit-md py-unit-xs bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-lg font-mono-spec text-mono-spec transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">folder_zip</span>
+<span>Download Gerber / KiCad Files (38.4 MB)</span>
+</button>
+</div>
+</div>
+<!-- Inline Visual Schematic & Scope Diagram -->
+<div class="w-full lg:w-[420px] flex flex-col gap-unit-xs self-center lg:self-start">
+<div class="relative w-full h-56 rounded-xl overflow-hidden bg-surface-container-lowest shadow-inner flex items-center justify-center p-unit-md">
+<!-- Simulated Differential Return Path Eye Diagram -->
+<svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="traceGlow" x1="0" x2="400" y1="0" y2="0">
+<stop stop-color="#4edea3" stop-opacity="0.1"></stop>
+<stop stop-color="#4edea3" stop-opacity="0.9"></stop>
+<stop stop-color="#2563eb" stop-opacity="0.8"></stop>
+</linearGradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#434655" stroke-dasharray="4 4" stroke-opacity="0.25" x1="0" x2="400" y1="50" y2="50"></line>
+<line stroke="#434655" stroke-opacity="0.4" x1="0" x2="400" y1="100" y2="100"></line>
+<line stroke="#434655" stroke-dasharray="4 4" stroke-opacity="0.25" x1="0" x2="400" y1="150" y2="150"></line>
+<line stroke="#434655" stroke-dasharray="4 4" stroke-opacity="0.25" x1="100" x2="100" y1="0" y2="200"></line>
+<line stroke="#434655" stroke-opacity="0.4" x1="200" x2="200" y1="0" y2="200"></line>
+<line stroke="#434655" stroke-dasharray="4 4" stroke-opacity="0.25" x1="300" x2="300" y1="0" y2="200"></line>
+<!-- Clean Eye Pattern Traces -->
+<path d="M 10 100 Q 60 20, 150 20 T 250 180 T 390 100" stroke="url(#traceGlow)" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M 10 100 Q 60 180, 150 180 T 250 20 T 390 100" stroke="url(#traceGlow)" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M 10 100 C 90 95, 140 30, 200 100 C 260 170, 310 105, 390 100" stroke="#b4c5ff" stroke-opacity="0.85" stroke-width="1.8"></path>
+<path d="M 10 100 C 90 105, 140 170, 200 100 C 260 30, 310 95, 390 100" stroke="#b4c5ff" stroke-opacity="0.85" stroke-width="1.8"></path>
+<!-- S-Parameter Insertion Loss Label -->
+<rect fill="#1e1f25" fill-opacity="0.85" height="24" rx="4" width="132" x="18" y="16"></rect>
+<text fill="#4edea3" font-family="JetBrains Mono" font-size="10" font-weight="600" x="24" y="32">S21: -1.04 dB @ 2.4GHz</text>
+</svg>
+<div class="absolute bottom-2 right-3 font-mono-spec text-label-caps text-outline">FIG 4.1 // TDR IMPEDANCE EYE DIAGRAM</div>
+</div>
+<div class="flex items-center justify-between px-unit-xs">
+<span class="font-mono-spec text-label-caps text-outline uppercase">Stackup: JLC2313 • 4-Layer Controlled 50Ω</span>
+<span class="font-mono-spec text-label-caps text-secondary font-medium">PASS // JITTER &lt; 1.4ps</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Grid: Articles (Left 8 Cols) + Formulas/Telemetry Sidebar (Right 4 Cols) -->
+<section class="w-full max-w-[1200px] mx-auto px-unit-lg pb-unit-4xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-unit-xl items-start">
+<!-- Article Stream (8 Columns) -->
+<div class="lg:col-span-8 flex flex-col gap-unit-lg" id="articles-stream">
+<div class="flex items-center justify-between pb-unit-xs">
+<span class="font-mono-code text-mono-code text-on-surface uppercase tracking-wider font-medium">Curated Technical Dissertations (6)</span>
+<span class="font-mono-spec text-mono-spec text-outline">SORT: CHRONOLOGICAL // DESC</span>
+</div>
+<!-- Article Card 1 -->
+<article class="article-item group p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col gap-unit-sm" data-category="embedded ml">
+<div class="flex flex-wrap items-center justify-between gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-secondary font-label-caps text-label-caps font-medium">TINYML</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">EMBEDDED</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-primary font-label-caps text-label-caps">EDGE AI</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">8 MIN READ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+            Quantizing Convolutional Neural Networks for Cortex-M4 Microcontrollers using TensorFlow Lite Micro &amp; CMSIS-NN
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            A surgical walkthrough on int8 post-training quantization, SRAM buffer reuse strategies, and SIMD activation vectorization under 64KB memory constraints on an STM32F401RE MCU.
+          </p>
+<div class="flex items-center justify-between pt-unit-xs">
+<div class="flex items-center gap-unit-xs font-mono-spec text-mono-spec text-outline">
+<span class="material-symbols-outlined text-[15px] text-primary">memory</span>
+<span>Cortex-M4 // 84MHz // 64KB SRAM</span>
+</div>
+<a class="inline-flex items-center gap-unit-2xs font-mono-code text-mono-code text-primary hover:text-primary-fixed-dim transition-colors" href="#">
+<span>Inspect Disassembly &amp; C Code</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="article-item group p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col gap-unit-sm" data-category="pcb">
+<div class="flex flex-wrap items-center justify-between gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-tertiary font-label-caps text-label-caps font-medium">ANALOGUE ELECTRONICS</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">PROTEUS</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">INSTRUMENTATION</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">10 MIN READ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+            Designing Low-Noise Analogue Signal Conditioning for Precision Strain Gauges in Proteus
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Analyzing instrumentation amplifier CMRR trade-offs, Johnson noise calculations, active Butterworth filtering topologies, and thermal drift cancellation techniques for microvolt-range wheatstone bridges.
+          </p>
+<div class="flex items-center justify-between pt-unit-xs">
+<div class="flex items-center gap-unit-xs font-mono-spec text-mono-spec text-outline">
+<span class="material-symbols-outlined text-[15px] text-tertiary">tune</span>
+<span>INA128 • 120dB CMRR • 0.1Hz–10Hz LPF</span>
+</div>
+<a class="inline-flex items-center gap-unit-2xs font-mono-code text-mono-code text-primary hover:text-primary-fixed-dim transition-colors" href="#">
+<span>View Simulation Results</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="article-item group p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col gap-unit-sm" data-category="fullstack">
+<div class="flex flex-wrap items-center justify-between gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-primary font-label-caps text-label-caps font-medium">BACK-END</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">DATABASES</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-secondary font-label-caps text-label-caps">DISTRIBUTED SYSTEMS</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">7 MIN READ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+            Building Scalable Real-Time IoT Telemetry Pipelines with FastAPI, PostgreSQL TimescaleDB, and WebSockets
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Ingesting 15,000 samples/sec of high-frequency sensor readings via async MQTT-FastAPI bridges, continuous aggregate hyper-tables in TimescaleDB, and broadcast delivery via binary WebSockets.
+          </p>
+<div class="flex items-center justify-between pt-unit-xs">
+<div class="flex items-center gap-unit-xs font-mono-spec text-mono-spec text-outline">
+<span class="material-symbols-outlined text-[15px] text-secondary">database</span>
+<span>15k msg/s • Sub-5ms query hyper-chunks</span>
+</div>
+<a class="inline-flex items-center gap-unit-2xs font-mono-code text-mono-code text-primary hover:text-primary-fixed-dim transition-colors" href="#">
+<span>Read Architecture Guide</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 4 -->
+<article class="article-item group p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col gap-unit-sm" data-category="rf">
+<div class="flex flex-wrap items-center justify-between gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-secondary font-label-caps text-label-caps font-medium">TELECOMMUNICATIONS</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-tertiary font-label-caps text-label-caps">RF</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">HARDWARE</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">11 MIN READ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+            RF Impedance Matching and Pi-Filter Tuning for 868MHz LoRa Transceivers on FR4 Substrates
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Smith chart navigation and VNA calibration for matching SX1262 power amplifiers to quarter-wave helical antennas while compensating for non-ideal dielectric tolerances of budget 1.6mm FR4.
+          </p>
+<div class="flex items-center justify-between pt-unit-xs">
+<div class="flex items-center gap-unit-xs font-mono-spec text-mono-spec text-outline">
+<span class="material-symbols-outlined text-[15px] text-tertiary">cell_tower</span>
+<span>VSWR 1.09:1 @ 868.1 MHz // S11 -28.3dB</span>
+</div>
+<a class="inline-flex items-center gap-unit-2xs font-mono-code text-mono-code text-primary hover:text-primary-fixed-dim transition-colors" href="#">
+<span>Examine Smith Charts</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 5 -->
+<article class="article-item group p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col gap-unit-sm" data-category="embedded">
+<div class="flex flex-wrap items-center justify-between gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-primary font-label-caps text-label-caps font-medium">FIRMWARE</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-secondary font-label-caps text-label-caps">RTOS</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">C / C++</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">9 MIN READ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+            State-Machine Architecture in FreeRTOS: Eliminating Race Conditions in Multi-Sensor Firmware
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Structuring robust event-driven hierarchical state machines (HSM) using FreeRTOS event groups, mutex locks with priority inheritance, and DMA-driven peripheral ring buffers.
+          </p>
+<div class="flex items-center justify-between pt-unit-xs">
+<div class="flex items-center gap-unit-xs font-mono-spec text-mono-spec text-outline">
+<span class="material-symbols-outlined text-[15px] text-primary">developer_board</span>
+<span>Deterministic context switches &lt; 2.2μs</span>
+</div>
+<a class="inline-flex items-center gap-unit-2xs font-mono-code text-mono-code text-primary hover:text-primary-fixed-dim transition-colors" href="#">
+<span>View FreeRTOS Task Architecture</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 6 -->
+<article class="article-item group p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col gap-unit-sm" data-category="fullstack embedded">
+<div class="flex flex-wrap items-center justify-between gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-secondary font-label-caps text-label-caps font-medium">FRONT-END</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-primary font-label-caps text-label-caps">WEBSOCKETS</span>
+<span class="px-unit-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">SYSTEMS</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">6 MIN READ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+            Full-Stack Telemetry: Bridging Low-Level Hardware UART to Interactive React Canvas Visualizers
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            A high-performance pipeline leveraging the Web Serial API and offscreen HTML5 2D Canvas rendering to chart 60fps raw IMU attitude quaternions directly from flight-controller hardware.
+          </p>
+<div class="flex items-center justify-between pt-unit-xs">
+<div class="flex items-center gap-unit-xs font-mono-spec text-mono-spec text-outline">
+<span class="material-symbols-outlined text-[15px] text-secondary">monitor_heart</span>
+<span>Zero-lag 60fps WebGL / Canvas2D</span>
+</div>
+<a class="inline-flex items-center gap-unit-2xs font-mono-code text-mono-code text-primary hover:text-primary-fixed-dim transition-colors" href="#">
+<span>Inspect React &amp; UART Code</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<!-- Engineering Bench Notes & Interactive Tool Sidebar (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-unit-lg">
+<!-- Live Bench Quick Reference Formula Sheet -->
+<div class="p-unit-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-unit-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-unit-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">calculate</span>
+<span class="font-mono-code text-mono-code text-on-surface font-medium uppercase">Engineering Formulas</span>
+</div>
+<span class="font-mono-spec text-mono-spec text-outline">BENCH CHEATSHEET</span>
+</div>
+<!-- Formula 1 -->
+<div class="p-unit-sm rounded-lg bg-surface-container flex flex-col gap-unit-2xs">
+<div class="flex justify-between items-baseline">
+<span class="font-mono-spec text-mono-spec text-on-surface-variant">Microstrip Impedance (Z₀)</span>
+<span class="font-label-caps text-label-caps text-secondary font-mono-code">IPC-2141</span>
+</div>
+<div class="font-mono-code text-mono-code text-primary py-1 px-unit-xs rounded bg-surface-container-lowest overflow-x-auto">
+              Z₀ ≈ (87 / √(εᵣ + 1.41)) · ln(5.98h / (0.8w + t))
+            </div>
+<span class="font-mono-spec text-label-caps text-outline">Valid for 0.1 &lt; w/h &lt; 3.0 on FR4</span>
+</div>
+<!-- Formula 2 -->
+<div class="p-unit-sm rounded-lg bg-surface-container flex flex-col gap-unit-2xs">
+<div class="flex justify-between items-baseline">
+<span class="font-mono-spec text-mono-spec text-on-surface-variant">ADC Quantization SNR</span>
+<span class="font-label-caps text-label-caps text-tertiary font-mono-code">IDEAL N-BIT</span>
+</div>
+<div class="font-mono-code text-mono-code text-primary py-1 px-unit-xs rounded bg-surface-container-lowest overflow-x-auto">
+              SNR(dB) = 6.02 · N + 1.76 dB
+            </div>
+<span class="font-mono-spec text-label-caps text-outline">For full-scale sinewave inputs</span>
+</div>
+<!-- Formula 3 -->
+<div class="p-unit-sm rounded-lg bg-surface-container flex flex-col gap-unit-2xs">
+<div class="flex justify-between items-baseline">
+<span class="font-mono-spec text-mono-spec text-on-surface-variant">Nyquist Anti-Aliasing Cutoff</span>
+<span class="font-label-caps text-label-caps text-primary font-mono-code">DSP RULE</span>
+</div>
+<div class="font-mono-code text-mono-code text-primary py-1 px-unit-xs rounded bg-surface-container-lowest overflow-x-auto">
+              f_c ≤ f_sample / (2 · 1.25)
+            </div>
+<span class="font-mono-spec text-label-caps text-outline">Guarantees 40dB suppression at f_s / 2</span>
+</div>
+</div>
+<!-- Open Hardware Repositories / Code Activity Card -->
+<div class="p-unit-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-unit-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-unit-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
+<span class="font-mono-code text-mono-code text-on-surface font-medium uppercase">Git Hardware Repos</span>
+</div>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+</div>
+<div class="flex flex-col gap-unit-sm">
+<!-- Repo 1 -->
+<a class="p-unit-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex flex-col gap-unit-2xs group" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center justify-between">
+<span class="font-mono-code text-mono-code text-on-surface font-medium group-hover:text-primary transition-colors">arian/stm32-cmsis-dsp</span>
+<span class="flex items-center gap-1 font-mono-spec text-mono-spec text-secondary">
+<span class="material-symbols-outlined text-[13px]">star</span> 142
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Fast Hartley Transform &amp; IIR filters for STM32G4</p>
+<span class="font-mono-spec text-label-caps text-outline">C++20 • KiCad Schematics • Last commit 2d ago</span>
+</a>
+<!-- Repo 2 -->
+<a class="p-unit-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex flex-col gap-unit-2xs group" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center justify-between">
+<span class="font-mono-code text-mono-code text-on-surface font-medium group-hover:text-primary transition-colors">arian/kicad-impedance-calc</span>
+<span class="flex items-center gap-1 font-mono-spec text-mono-spec text-secondary">
+<span class="material-symbols-outlined text-[13px]">star</span> 89
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Python CLI plugin for 2D field solver calculations</p>
+<span class="font-mono-spec text-label-caps text-outline">Python 3.12 • Open Source • GPL-3.0</span>
+</a>
+<!-- Repo 3 -->
+<a class="p-unit-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex flex-col gap-unit-2xs group" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center justify-between">
+<span class="font-mono-code text-mono-code text-on-surface font-medium group-hover:text-primary transition-colors">arian/lora-node-mesh</span>
+<span class="flex items-center gap-1 font-mono-spec text-mono-spec text-secondary">
+<span class="material-symbols-outlined text-[13px]">star</span> 217
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Ultra-low-power 868MHz environmental telemetry node</p>
+<span class="font-mono-spec text-label-caps text-outline">C / FreeRTOS • 4-Layer PCB Gerber attached</span>
+</a>
+</div>
+</div>
+<!-- Laboratory Equipment & Setup Metric Widget -->
+<div class="p-unit-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-unit-sm">
+<div class="flex items-center gap-unit-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">biotech</span>
+<span class="font-mono-code text-mono-code text-on-surface font-medium uppercase">Active Bench Setup</span>
+</div>
+<div class="space-y-unit-xs pt-unit-2xs">
+<div class="flex justify-between items-center text-mono-spec font-mono-spec">
+<span class="text-on-surface-variant">Mixed Signal Oscilloscope</span>
+<span class="text-on-surface font-medium">Siglent SDS2104X+</span>
+</div>
+<div class="flex justify-between items-center text-mono-spec font-mono-spec">
+<span class="text-on-surface-variant">Vector Network Analyzer</span>
+<span class="text-on-surface font-medium">NanoVNA V2 Plus4</span>
+</div>
+<div class="flex justify-between items-center text-mono-spec font-mono-spec">
+<span class="text-on-surface-variant">Logic Analyzer</span>
+<span class="text-on-surface font-medium">Saleae Logic Pro 16</span>
+</div>
+<div class="flex justify-between items-center text-mono-spec font-mono-spec">
+<span class="text-on-surface-variant">EDA Suite Preference</span>
+<span class="text-primary font-medium">KiCad 8.0 &amp; Proteus 8.16</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter & Terminal-Styled Dispatch Subscription Section -->
+<section class="w-full bg-surface-container-lowest py-unit-3xl">
+<div class="max-w-[1200px] mx-auto px-unit-lg">
+<div class="p-unit-xl rounded-xl bg-surface-container shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-unit-xl">
+<div class="flex-1 flex flex-col gap-unit-xs">
+<div class="flex items-center gap-unit-xs">
+<span class="font-mono-spec text-mono-spec text-primary font-medium tracking-widest uppercase">TERMINAL DISPATCH // RSS FEED</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
+            Subscribe to Lab Dispatches &amp; Hardware Logs
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            No marketing fluff or spam. Only rigorous circuit analysis, firmware snippets, IEEE citations, and Gerber design releases delivered monthly.
+          </p>
+</div>
+<form class="w-full lg:w-auto flex flex-col sm:flex-row items-stretch gap-unit-xs" id="subscribe-form" onsubmit="event.preventDefault(); document.getElementById('sub-success').classList.remove('hidden');">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">alternate_email</span>
+<input class="w-full sm:w-80 bg-surface-container-lowest text-on-surface pl-10 pr-unit-md py-unit-xs rounded-lg font-mono-code text-mono-code focus:outline-none focus:bg-surface-container-low transition-all" placeholder="engineer@domain.com" required="" type="email">
+</div>
+<button class="inline-flex items-center justify-center gap-unit-xs px-unit-lg py-unit-xs bg-primary text-on-primary rounded-lg font-headline-sm text-headline-sm font-medium hover:bg-primary-fixed-dim transition-all shadow-md active:scale-95 whitespace-nowrap" type="submit">
+<span>Register Signal</span>
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+</button>
+</form>
+</div>
+<div class="hidden mt-unit-sm text-center font-mono-spec text-mono-spec text-secondary" id="sub-success">
+        ✓ Subscription handshake established. Next dispatch scheduled for Nov 1st.
+      </div>
+</div>
+</section>
+</div>
+<!-- Interactive Client-side Search & Tag Filtering Logic -->
+<script>
+  (function() {
+    const searchInput = document.getElementById('search-input');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articles = document.querySelectorAll('.article-item');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function applyFilterAndSearch() {
+      const q = searchQuery.toLowerCase().trim();
+      articles.forEach(article => {
+        const categories = (article.getAttribute('data-category') || '').toLowerCase();
+        const textContent = article.textContent.toLowerCase();
+
+        const matchesFilter = (currentFilter === 'all') || categories.includes(currentFilter);
+        const matchesQuery = !q || textContent.includes(q);
+
+        if (matchesFilter && matchesQuery) {
+          article.style.display = 'flex';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        applyFilterAndSearch();
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        btn.classList.add('bg-primary', 'text-on-primary');
+
+        currentFilter = btn.getAttribute('data-filter');
+        applyFilterAndSearch();
+      });
+    });
+  })();
+</script>
+</main>
+
+    <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-unit-2xl">
+			<!-- <div class="flex flex-col md:flex-row items-center md:items-start"> -->
+			<div class="max-w-[1200px] mx-auto px-unit-lg flex flex-col md:flex-row items-center justify-between gap-unit-lg">
+				<!-- <div class="order-2 md:order-1 lg:p-unit-xl text-center lg:text-left"> -->
+				<div class="order-2 md:order-1 flex flex-col items-center md:items-start gap-unit-2xs text-center md:text-left">
+					<span class="font-mono-code text-mono-code text-on-surface">Tinotenda Mapara, M.Sc. &amp; B.Sc. (Hons)</span>
+					<!-- <span class="font-mono-spec text-mono-spec text-outline">© 2026 Electronics &amp; Computer Systems Architecture. All rights reserved.</span> -->
+					<span class="font-mono-spec text-mono-spec text-outline">© 2026 Tinotenda Markandreck Mapara. All rights reserved.</span>
+				</div>
+				<!-- <div class="order-1 md:order-2 pb-unit-md md:p-unit-md lg:p-0"> -->
+				<div class="order-1 md:order-2 flex flex-wrap items-center justify-center gap-unit-lg">
+					<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://github.com" rel="noopener noreferrer" target="_blank">
+						<!-- <span class="material-symbols-outlined text-[14px]">terminal</span>GitHub -->
+						<span><i class="fa-brands fa-github text-[16px]"></i></span>GitHub 
+					</a>
+					<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://www.linkedin.com/in/tinotenda-mapara-9a78bb266/" rel="noopener noreferrer" target="_blank">
+						<!-- <span class="material-symbols-outlined text-[14px]">hub</span>LinkedIn -->
+						<span><i class="fa-brands fa-linkedin text-[16px]"></i></span>LinkedIn
+					</a>
+					<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://scholar.google.com/citations?hl=en&user=jNSochkAAAAJ" rel="noopener noreferrer" target="_blank">
+						<span><i class="fa-brands fa-google-scholar text-[16px]"></i></span>Google Scholar
+					</a>
+					<!-- <a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://x.com" rel="noopener noreferrer" target="_blank">
+						<span><i class="fa-brands fa-twitter text-[18px]"></i></span>X(Twitter)
+					</a> -->
+					<!-- <a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://orcid.org" rel="noopener noreferrer" target="_blank">
+						<span class="material-symbols-outlined text-[16px]">fingerprint</span>ORCID
+					</a> -->
+					<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="https://wa.me/264816466216" rel="noopener noreferrer" target="_blank">
+						<span><i class="fa-brands fa-whatsapp text-[16px]"></i></span>WhatsApp
+					</a>
+					<a class="font-mono-spec text-mono-spec text-on-surface-variant hover:text-primary transition-colors flex items-center gap-unit-2xs" href="mailto:markmapara@gmail.com">
+						<span class="material-symbols-outlined text-[16px]">mail</span>markmapara@gmail.com
+					</a>
+				</div>
+			</div>
+		</footer>
+
+    <script type="module" src="../scripts/main.js"></script>
+</body>
+</html>
