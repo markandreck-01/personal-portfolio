@@ -283,6 +283,88 @@ filterButtons.forEach(button => {
 });
 
 
+
+// ============================================
+//  Research, Conferences and Blog (KNOWLEDGE DISSEMINATION) TAB CONTROLLER
+// ============================================
+const knowledgeTabs = document.querySelectorAll('[data-knowledge-tab]');
+const knowledgePanels = document.querySelectorAll('[data-knowledge-panel]');
+
+function activateKnowledgeTab(tabName) {
+    knowledgeTabs.forEach((tab) => {
+        const isActive = tab.dataset.knowledgeTab === tabName;
+
+        tab.classList.toggle('text-primary', isActive);
+        tab.classList.toggle('text-on-surface-variant', !isActive);
+
+        tab.classList.toggle('border-primary', isActive);
+        tab.classList.toggle('border-transparent', !isActive);
+
+        tab.setAttribute('aria-selected', isActive);
+    });
+
+    knowledgePanels.forEach((panel) => {
+        const isActive = panel.dataset.knowledgePanel === tabName;
+        panel.classList.toggle('hidden', !isActive);
+    });
+}
+
+knowledgeTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        activateKnowledgeTab(tab.dataset.knowledgeTab);
+    });
+});
+
+// Publications is the default tab
+activateKnowledgeTab('publications');
+
+
+// ============================================
+//   Conferences images modal controller
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('image-modal-content');
+    const closeButton = document.getElementById('image-modal-close');
+
+    document.querySelectorAll('.conference-image').forEach(button => {
+        button.addEventListener('click', () => {
+            modalImage.src = button.dataset.fullImage;
+
+            const thumbnail = button.querySelector('img');
+            modalImage.alt = thumbnail?.alt || 'Conference photograph';
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            document.body.classList.add('overflow-hidden');
+        });
+    });
+
+    function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modalImage.src = '';
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    closeButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', event => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+});
+
+
+
 // ====================================================================================
 //  Copy Email to Clipboard Microinteraction (Contact Section)
 // ====================================================================================
@@ -519,6 +601,7 @@ contactForm.addEventListener('submit', async (event) => {
     };
 
     try {
+        // send email from form through "contact@tmapara.com" to personal gmail
         const response = await fetch('/api/contact', {
             method: 'POST',
             headers: {
@@ -557,3 +640,16 @@ contactForm.addEventListener('submit', async (event) => {
         sendButton.disabled = false;
     }
 });
+
+
+// ====================================================================================
+//  page loading screen handler
+// ====================================================================================
+window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+
+    // setTimeout(() => {
+        loader.classList.add('is-hidden');
+    // }, 3000);
+});
+

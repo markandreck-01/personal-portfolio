@@ -1,23 +1,21 @@
-/* tracing animation for the conatact button in the main navbar */
+/* ========================================
+     tracing animation for the conatact button in the main navbar
+   ======================================== */
 .contact-glow {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     padding: 0.45rem 0.9rem;
     border-radius: 0.25rem;
-
     color: inherit;
 }
 
 .contact-glow-border {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     pointer-events: none;
     overflow: visible;
 }
@@ -36,7 +34,6 @@
     from {
         stroke-dashoffset: 0;
     }
-
     to {
         stroke-dashoffset: -100;
     }
@@ -47,33 +44,11 @@
     z-index: 1;
 }
 
-/* header {
-  background: red !important;
-  outline: 3px solid blue !important;
-}
-
-body {
-  background: yellow;
-} */
-
-/* .typewriter-cursor {
-    display: inline-block;
-    margin-left: 2px;
-    animation: blink 0.8s step-end infinite;
-}
-
-@keyframes blink {
-    0%, 50% {
-        opacity: 1;
-    }
-
-    51%, 100% {
-        opacity: 0;
-    }
-} */
 
 
-/* typewriting cursor effect of the "bridging silicon and software" in hero section */
+/* ========================================
+     typewriting cursor effect of the "bridging silicon and software" in hero section
+   ======================================== */
 .typewriter-cursor {
     display: inline-block;
     width: 0.55em;
@@ -96,3 +71,133 @@ body {
     }
 }
 
+
+
+/* =========================================================
+        PAGE LOADING SCCREEN
+   ========================================================= */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #0b0d0c;
+    color: #f1f5f2;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 500ms ease,
+        visibility 500ms ease;
+}
+#page-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Loader content */
+.loader-content {
+    width: min(320px, calc(100vw - 48px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Three animated dots */
+.loader-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 12px;
+}
+.loader-dots span {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7ee787;
+    animation: loader-dot 1.2s infinite ease-in-out;
+}
+.loader-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+.loader-dots span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.loader-dots span:nth-child(3) {
+    animation-delay: 0.30s;
+}
+@keyframes loader-dot {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.55);
+        opacity: 0.35;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Loading text */
+.loader-text {
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #a7b0aa;
+}
+.loader-cursor {
+    color: #76dd7f;
+    animation: loader-cursor 0.8s infinite;
+}
+@keyframes loader-cursor {
+    0%,
+    45% {
+        opacity: 1;
+    }
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Progress bar */
+.loader-progress {
+    width: 70%;
+    height: 2px;
+    overflow: hidden;
+    background: #1b211d;
+}
+.loader-progress-bar {
+    width: 100%;
+    height: 100%;
+    background: #7ee787;
+    animation: loader-progress 1.5s infinite ease-in-out;
+}
+@keyframes loader-progress {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(350%);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .loader-dots span,
+    .loader-cursor,
+    .loader-progress-bar {
+        animation: none;
+    }
+}
